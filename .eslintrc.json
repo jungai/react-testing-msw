@@ -1,0 +1,88 @@
+{
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier",
+		"plugin:prettier/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript"
+	],
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-console": "warn",
+		"prettier/prettier": "error",
+		"import/no-extraneous-dependencies": "off",
+		"import/prefer-default-export": 0,
+		"import/no-duplicates": "error",
+		"import/named": "off",
+		"import/no-unresolved": "off",
+		"import/order": [
+			"error",
+			{
+				"groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+				"pathGroups": [
+					{
+						"pattern": "@/**",
+						"group": "sibling",
+						"position": "after"
+					}
+				],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": false
+				}
+			}
+		],
+		"no-shadow": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		// https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md#how-to-use
+		// off warning, when import React as a default module
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"react/display-name": "off"
+	},
+	"overrides": [
+		{
+			"files": ["src/**/*.tsx"],
+			"rules": {
+				"@typescript-eslint/explicit-module-boundary-types": "off"
+			}
+		},
+		{
+			"files": ["src/**/*.spec.ts"],
+			"env": {
+				"jest": true
+			}
+		},
+		{
+			"files": ["config/**/*.js", "postcss.config.js", "jest.config.js"],
+			"rules": {
+				"@typescript-eslint/no-var-requires": "off",
+				"global-require": "off"
+			}
+		}
+	],
+	"settings": {
+		"react": {
+			"version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+		}
+	}
+}
