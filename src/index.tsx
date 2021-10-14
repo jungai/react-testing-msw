@@ -1,6 +1,6 @@
+import { ConfigProvider } from 'antd';
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ConfigProvider } from 'antd';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
