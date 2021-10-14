@@ -1,9 +1,8 @@
 {
     "compilerOptions": {
-      "experimentalDecorators": true,
       "jsx": "react-jsx",
-      "isolatedModules": true,
-			"esModuleInterop": true,
+			"types": ["jest"],
 			"strict": true,
+			"esModuleInterop": true,
     }
-  }
+}
